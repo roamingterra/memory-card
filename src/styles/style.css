@@ -39,27 +39,28 @@ html {
   margin-top: 40px;
   margin-right: auto;
   margin-left: auto;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
 .card-section {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-  overflow: auto;
+  grid-template-columns: repeat(6, minmax(200px, 1fr));
+  column-gap: 20px;
+  row-gap: 20px;
   justify-content: center;
   justify-items: center;
   align-items: center;
+  padding: 10px;
 }
 
 .card {
   background-color: black;
-  padding: 20px;
+  padding: 15px;
 }
 
 .img {
-  width: 150px;
-  height: 150px;
+  min-width: 150px;
+  min-height: 150px;
   background-color: white;
 }
 
@@ -68,4 +69,37 @@ html {
   flex-direction: column;
   align-items: center;
   font-size: 1.5rem;
+}
+
+@media screen and (max-width: 1310px) {
+  .card-section-container {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .card-section {
+    grid-template-columns: repeat(4, minmax(50px, 250px));
+    column-gap: 10px;
+    row-gap: 40px;
+  }
+  .card {
+    padding: 10px;
+  }
+  .img {
+    min-width: 100px;
+    min-height: 100px;
+  }
+}
+
+@media screen and (max-width: 689px) {
+  .card-section-container {
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+  .card {
+    padding: 7.5px;
+  }
+  .img {
+    min-width: 75px;
+    min-height: 75px;
+  }
 }
