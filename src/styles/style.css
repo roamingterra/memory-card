@@ -92,12 +92,12 @@ html {
 
 @media screen and (max-width: 689px) {
   .card-section-container {
-    margin-top: 40px;
+    margin-top: 50px;
     margin-bottom: 40px;
   }
 
   .card-section {
-    row-gap: 20px;
+    row-gap: 10px;
   }
 
   .card {
