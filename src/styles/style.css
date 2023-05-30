@@ -76,6 +76,7 @@ img {
   width: 210px;
   height: 130px;
   background-color: white;
+  cursor: pointer;
 }
 
 .footer {

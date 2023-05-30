@@ -35,25 +35,24 @@ const flagsDefaultState = {
 function App() {
   const [flags, setFlags] = useState(flagsDefaultState);
 
+  const shuffleFlags = () => {
+    // Clear flags state object
+    setFlags(flagsDefaultState);
+
+    // Make a shallow copy of the images array
+    const imagesCopy = [...images];
+    // Make a new object that is a shallow copy of the flagsDefaultState
+    const newFlags = { ...flagsDefaultState };
+
+    // Recursively dump images from imagesCopy into random keys of the newFlags object
+    for (const flag in newFlags) {
+      const randomIndex = Math.floor(Math.random() * imagesCopy.length);
+      newFlags[flag] = imagesCopy[randomIndex];
+      imagesCopy.splice(randomIndex, 1);
+    }
+    setFlags(newFlags);
+  };
   useEffect(() => {
-    const shuffleFlags = () => {
-      // Clear flags state object
-      setFlags(flagsDefaultState);
-
-      // Make a shallow copy of the images array
-      const imagesCopy = [...images];
-      // Make a new object that is a shallow copy of the flagsDefaultState
-      const newFlags = { ...flagsDefaultState };
-
-      // Recursively dump images from imagesCopy into random keys of the newFlags object
-      for (const flag in newFlags) {
-        const randomIndex = Math.floor(Math.random() * imagesCopy.length);
-        newFlags[flag] = imagesCopy[randomIndex];
-        imagesCopy.splice(randomIndex, 1);
-      }
-      setFlags(newFlags);
-    };
-
     shuffleFlags();
   }, []); // Empty dependency array to run the effect once
 
@@ -73,18 +72,18 @@ function App() {
         </div>
         <div className="card-section-container">
           <div className="card-section">
-            <Card img={flags.flag1}></Card>
-            <Card img={flags.flag2}></Card>
-            <Card img={flags.flag3}></Card>
-            <Card img={flags.flag4}></Card>
-            <Card img={flags.flag5}></Card>
-            <Card img={flags.flag6}></Card>
-            <Card img={flags.flag7}></Card>
-            <Card img={flags.flag8}></Card>
-            <Card img={flags.flag9}></Card>
-            <Card img={flags.flag10}></Card>
-            <Card img={flags.flag11}></Card>
-            <Card img={flags.flag12}></Card>
+            <Card img={flags.flag1} onClick={shuffleFlags}></Card>
+            <Card img={flags.flag2} onClick={shuffleFlags}></Card>
+            <Card img={flags.flag3} onClick={shuffleFlags}></Card>
+            <Card img={flags.flag4} onClick={shuffleFlags}></Card>
+            <Card img={flags.flag5} onClick={shuffleFlags}></Card>
+            <Card img={flags.flag6} onClick={shuffleFlags}></Card>
+            <Card img={flags.flag7} onClick={shuffleFlags}></Card>
+            <Card img={flags.flag8} onClick={shuffleFlags}></Card>
+            <Card img={flags.flag9} onClick={shuffleFlags}></Card>
+            <Card img={flags.flag10} onClick={shuffleFlags}></Card>
+            <Card img={flags.flag11} onClick={shuffleFlags}></Card>
+            <Card img={flags.flag12} onClick={shuffleFlags}></Card>
           </div>
         </div>
       </div>
