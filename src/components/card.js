@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 function Card(props) {
+  const { img } = props;
+
   return (
     <div className="card">
-      <div className="img"></div>
+      <img className="img" alt="flag" src={img}></img>
     </div>
   );
 }
