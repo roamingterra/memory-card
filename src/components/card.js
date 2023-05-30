@@ -7,6 +7,8 @@ function Card(props) {
     onClick();
   };
 
+  // onClick={handleClick}
+
   return (
     <div className="card">
       <img className="img" alt="flag" src={img} onClick={handleClick}></img>

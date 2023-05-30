@@ -2,38 +2,41 @@ import React, { useState, useEffect } from "react";
 import Card from "./components/card";
 import "./styles/style.css";
 
-const images = [
-  "/images/argentina.png",
-  "/images/australia.png",
-  "/images/brazil.png",
-  "/images/canada.png",
-  "/images/china.png",
-  "/images/france.png",
-  "/images/germany.png",
-  "/images/india.png",
-  "/images/italy.png",
-  "/images/japan.png",
-  "/images/south-africa.png",
-  "/images/united-kingdom.png",
-];
-
-const flagsDefaultState = {
-  flag1: "",
-  flag2: "",
-  flag3: "",
-  flag4: "",
-  flag5: "",
-  flag6: "",
-  flag7: "",
-  flag8: "",
-  flag9: "",
-  flag10: "",
-  flag11: "",
-  flag12: "",
-};
-
 function App() {
+  const flagsDefaultState = {
+    flag1: "",
+    flag2: "",
+    flag3: "",
+    flag4: "",
+    flag5: "",
+    flag6: "",
+    flag7: "",
+    flag8: "",
+    flag9: "",
+    flag10: "",
+    flag11: "",
+    flag12: "",
+  };
+
+  const images = [
+    "/images/argentina.png",
+    "/images/australia.png",
+    "/images/brazil.png",
+    "/images/canada.png",
+    "/images/china.png",
+    "/images/france.png",
+    "/images/germany.png",
+    "/images/india.png",
+    "/images/italy.png",
+    "/images/japan.png",
+    "/images/south-africa.png",
+    "/images/united-kingdom.png",
+  ];
+
   const [flags, setFlags] = useState(flagsDefaultState);
+  const [shuffleTrigger, setShuffleTrigger] = useState(true);
+  const [score, setScore] = useState(0);
+  const [bestScore, setBestScore] = useState(0);
 
   const shuffleFlags = () => {
     // Clear flags state object
@@ -52,9 +55,18 @@ function App() {
     }
     setFlags(newFlags);
   };
+
+  const handleClick = () => {
+    console.log("works");
+    setShuffleTrigger(true);
+  };
+
   useEffect(() => {
-    shuffleFlags();
-  }, []); // Empty dependency array to run the effect once
+    if (shuffleTrigger === true) {
+      shuffleFlags();
+      setShuffleTrigger(false);
+    }
+  }, [shuffleTrigger]); // Empty dependency array to run the effect once
 
   return (
     <div className="App">
@@ -72,18 +84,18 @@ function App() {
         </div>
         <div className="card-section-container">
           <div className="card-section">
-            <Card img={flags.flag1} onClick={shuffleFlags}></Card>
-            <Card img={flags.flag2} onClick={shuffleFlags}></Card>
-            <Card img={flags.flag3} onClick={shuffleFlags}></Card>
-            <Card img={flags.flag4} onClick={shuffleFlags}></Card>
-            <Card img={flags.flag5} onClick={shuffleFlags}></Card>
-            <Card img={flags.flag6} onClick={shuffleFlags}></Card>
-            <Card img={flags.flag7} onClick={shuffleFlags}></Card>
-            <Card img={flags.flag8} onClick={shuffleFlags}></Card>
-            <Card img={flags.flag9} onClick={shuffleFlags}></Card>
-            <Card img={flags.flag10} onClick={shuffleFlags}></Card>
-            <Card img={flags.flag11} onClick={shuffleFlags}></Card>
-            <Card img={flags.flag12} onClick={shuffleFlags}></Card>
+            <Card img={flags.flag1} onClick={handleClick}></Card>
+            <Card img={flags.flag2} onClick={handleClick}></Card>
+            <Card img={flags.flag3} onClick={handleClick}></Card>
+            <Card img={flags.flag4} onClick={handleClick}></Card>
+            <Card img={flags.flag5} onClick={handleClick}></Card>
+            <Card img={flags.flag6} onClick={handleClick}></Card>
+            <Card img={flags.flag7} onClick={handleClick}></Card>
+            <Card img={flags.flag8} onClick={handleClick}></Card>
+            <Card img={flags.flag9} onClick={handleClick}></Card>
+            <Card img={flags.flag10} onClick={handleClick}></Card>
+            <Card img={flags.flag11} onClick={handleClick}></Card>
+            <Card img={flags.flag12} onClick={handleClick}></Card>
           </div>
         </div>
       </div>
