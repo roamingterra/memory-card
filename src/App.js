@@ -96,9 +96,6 @@ function App() {
       }));
 
       shuffleFlags();
-      console.log(gameControl.selectedFlags);
-      console.log(gameControl.score);
-      console.log(gameControl.bestScore);
     }
   }, [gameControl.shuffleTrigger]); // Empty dependency array to run the effect once
 
