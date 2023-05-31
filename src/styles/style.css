@@ -58,6 +58,7 @@ body {
   margin-top: 70px;
   margin-right: auto;
   margin-left: auto;
+  min-height: 435px;
 }
 
 .card-section {
@@ -125,10 +126,6 @@ img {
 }
 
 @media screen and (max-width: 480px) {
-  /* .title {
-    
-  } */
-
   .instructions {
     display: none;
   }
