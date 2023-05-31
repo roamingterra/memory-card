@@ -39,6 +39,7 @@ function App() {
     shuffleTrigger: true,
     selectedFlags: [],
     score: 0,
+    bestScore: 0,
   });
 
   const shuffleFlags = () => {
@@ -60,7 +61,6 @@ function App() {
   };
 
   const handleClick = (countryName) => {
-    // Trigger lose game if selected flag is found in selectedFlags state array
     if (gameControl.selectedFlags.includes(countryName, 0)) {
       setGameControl((prevState) => ({
         ...prevState,
@@ -68,15 +68,23 @@ function App() {
         shuffleTrigger: true,
         score: 0,
       }));
-    }
-    // Trigger add point if selected flag is not found in selectedFlags state array
-    else {
-      setGameControl((prevState) => ({
-        ...prevState,
-        score: prevState.score + 1,
-        selectedFlags: [...prevState.selectedFlags, countryName],
-        shuffleTrigger: true,
-      }));
+    } else {
+      if (gameControl.bestScore < gameControl.score + 1) {
+        setGameControl((prevState) => ({
+          ...prevState,
+          score: prevState.score + 1,
+          bestScore: prevState.bestScore + 1,
+          selectedFlags: [...prevState.selectedFlags, countryName],
+          shuffleTrigger: true,
+        }));
+      } else {
+        setGameControl((prevState) => ({
+          ...prevState,
+          score: prevState.score + 1,
+          selectedFlags: [...prevState.selectedFlags, countryName],
+          shuffleTrigger: true,
+        }));
+      }
     }
   };
 
@@ -90,6 +98,7 @@ function App() {
       shuffleFlags();
       console.log(gameControl.selectedFlags);
       console.log(gameControl.score);
+      console.log(gameControl.bestScore);
     }
   }, [gameControl.shuffleTrigger]); // Empty dependency array to run the effect once
 
