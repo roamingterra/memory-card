@@ -112,8 +112,8 @@ function App() {
             once
           </div>
           <div className="score-board">
-            <div>Score:</div>
-            <div>Best Score:</div>
+            <div>Score: {gameControl.score}</div>
+            <div>Best Score: {gameControl.bestScore}</div>
           </div>
         </div>
         <div className="card-section-container">
