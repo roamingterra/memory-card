@@ -42,6 +42,10 @@ function App() {
     bestScore: 0,
   });
 
+  const [imagesRendered, setImagesRendered] = useState(false);
+
+  const [loadPage, setLoadPage] = useState(true);
+
   const shuffleFlags = () => {
     // Clear flags state object
     setFlags(flagsDefaultState);
@@ -90,17 +94,44 @@ function App() {
 
   useEffect(() => {
     if (gameControl.shuffleTrigger === true) {
+      if (loadPage === true) {
+        setTimeout(() => {
+          setLoadPage(false);
+        }, 1000);
+      }
       setGameControl((prevState) => ({
         ...prevState,
         shuffleTrigger: false,
       }));
 
-      shuffleFlags();
+      // Delay setting imagesRendered to true by a short period
+      setTimeout(() => {
+        shuffleFlags();
+        setImagesRendered(true);
+        // Delay setting imagesRendered to false by a short period
+        setTimeout(() => {
+          setImagesRendered(false);
+        }, 500);
+      }, 100);
     }
   }, [gameControl.shuffleTrigger]); // Empty dependency array to run the effect once
 
   return (
     <div className="App">
+      <div
+        id="loading-screen"
+        style={{
+          visibility: loadPage ? "visible" : "hidden",
+          opacity: loadPage ? 1 : 0,
+        }}
+      >
+        <div className="lds-ring">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
       <div className="wrapper">
         <div className="header">
           <div className="title">Memory Flag</div>
@@ -109,24 +140,77 @@ function App() {
             once
           </div>
           <div className="score-board">
-            <div>Score: {gameControl.score}</div>
-            <div>Best Score: {gameControl.bestScore}</div>
+            <div>
+              Score: <span style={{ color: "red" }}>{gameControl.score}</span>
+            </div>
+            <div>
+              Best Score:{" "}
+              <span style={{ color: "red" }}>{gameControl.bestScore}</span>
+            </div>
           </div>
         </div>
         <div className="card-section-container">
           <div className="card-section">
-            <Card img={flags.flag1} onClick={handleClick}></Card>
-            <Card img={flags.flag2} onClick={handleClick}></Card>
-            <Card img={flags.flag3} onClick={handleClick}></Card>
-            <Card img={flags.flag4} onClick={handleClick}></Card>
-            <Card img={flags.flag5} onClick={handleClick}></Card>
-            <Card img={flags.flag6} onClick={handleClick}></Card>
-            <Card img={flags.flag7} onClick={handleClick}></Card>
-            <Card img={flags.flag8} onClick={handleClick}></Card>
-            <Card img={flags.flag9} onClick={handleClick}></Card>
-            <Card img={flags.flag10} onClick={handleClick}></Card>
-            <Card img={flags.flag11} onClick={handleClick}></Card>
-            <Card img={flags.flag12} onClick={handleClick}></Card>
+            <Card
+              img={flags.flag1}
+              onClick={handleClick}
+              imagesRendered={imagesRendered}
+            ></Card>
+            <Card
+              img={flags.flag2}
+              onClick={handleClick}
+              imagesRendered={imagesRendered}
+            ></Card>
+            <Card
+              img={flags.flag3}
+              onClick={handleClick}
+              imagesRendered={imagesRendered}
+            ></Card>
+            <Card
+              img={flags.flag4}
+              onClick={handleClick}
+              imagesRendered={imagesRendered}
+            ></Card>
+            <Card
+              img={flags.flag5}
+              onClick={handleClick}
+              imagesRendered={imagesRendered}
+            ></Card>
+            <Card
+              img={flags.flag6}
+              onClick={handleClick}
+              imagesRendered={imagesRendered}
+            ></Card>
+            <Card
+              img={flags.flag7}
+              onClick={handleClick}
+              imagesRendered={imagesRendered}
+            ></Card>
+            <Card
+              img={flags.flag8}
+              onClick={handleClick}
+              imagesRendered={imagesRendered}
+            ></Card>
+            <Card
+              img={flags.flag9}
+              onClick={handleClick}
+              imagesRendered={imagesRendered}
+            ></Card>
+            <Card
+              img={flags.flag10}
+              onClick={handleClick}
+              imagesRendered={imagesRendered}
+            ></Card>
+            <Card
+              img={flags.flag11}
+              onClick={handleClick}
+              imagesRendered={imagesRendered}
+            ></Card>
+            <Card
+              img={flags.flag12}
+              onClick={handleClick}
+              imagesRendered={imagesRendered}
+            ></Card>
           </div>
         </div>
       </div>
