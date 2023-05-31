@@ -34,9 +34,12 @@ function App() {
   ];
 
   const [flags, setFlags] = useState(flagsDefaultState);
-  const [shuffleTrigger, setShuffleTrigger] = useState(true);
-  const [score, setScore] = useState(0);
-  const [bestScore, setBestScore] = useState(0);
+
+  const [gameControl, setGameControl] = useState({
+    shuffleTrigger: true,
+    selectedFlags: [],
+    score: 0,
+  });
 
   const shuffleFlags = () => {
     // Clear flags state object
@@ -56,17 +59,39 @@ function App() {
     setFlags(newFlags);
   };
 
-  const handleClick = () => {
-    console.log("works");
-    setShuffleTrigger(true);
+  const handleClick = (countryName) => {
+    // Trigger lose game if selected flag is found in selectedFlags state array
+    if (gameControl.selectedFlags.includes(countryName, 0)) {
+      setGameControl((prevState) => ({
+        ...prevState,
+        selectedFlags: [],
+        shuffleTrigger: true,
+        score: 0,
+      }));
+    }
+    // Trigger add point if selected flag is not found in selectedFlags state array
+    else {
+      setGameControl((prevState) => ({
+        ...prevState,
+        score: prevState.score + 1,
+        selectedFlags: [...prevState.selectedFlags, countryName],
+        shuffleTrigger: true,
+      }));
+    }
   };
 
   useEffect(() => {
-    if (shuffleTrigger === true) {
+    if (gameControl.shuffleTrigger === true) {
+      setGameControl((prevState) => ({
+        ...prevState,
+        shuffleTrigger: false,
+      }));
+
       shuffleFlags();
-      setShuffleTrigger(false);
+      console.log(gameControl.selectedFlags);
+      console.log(gameControl.score);
     }
-  }, [shuffleTrigger]); // Empty dependency array to run the effect once
+  }, [gameControl.shuffleTrigger]); // Empty dependency array to run the effect once
 
   return (
     <div className="App">
