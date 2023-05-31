@@ -1,7 +1,3 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 # Memory Card
 
 This is my second react application. It is a web app game that tests your memory! The user is provided with a set of 12 flags. The objective is to click on a flag that you haven't clicked on before, which will result in a point. Once the user clicks a flag, the flag positions are shuffled. The user should keep going, until they accidentally click a flag that they already clicked, which restarts the current score.
