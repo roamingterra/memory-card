@@ -33,17 +33,15 @@ function App() {
     "/images/united-kingdom.png",
   ];
 
+  // State variables
   const [flags, setFlags] = useState(flagsDefaultState);
-
   const [gameControl, setGameControl] = useState({
     shuffleTrigger: true,
     selectedFlags: [],
     score: 0,
     bestScore: 0,
   });
-
   const [imagesRendered, setImagesRendered] = useState(false);
-
   const [loadPage, setLoadPage] = useState(true);
 
   const shuffleFlags = () => {
@@ -104,17 +102,17 @@ function App() {
         shuffleTrigger: false,
       }));
 
-      // Delay setting imagesRendered to true by a short period
+      // Delay setting imagesRendered to true by a short period to animate the rendered images
       setTimeout(() => {
         shuffleFlags();
         setImagesRendered(true);
-        // Delay setting imagesRendered to false by a short period
+        // Delay setting imagesRendered to false by a short period to animate the rendered images
         setTimeout(() => {
           setImagesRendered(false);
         }, 500);
       }, 100);
     }
-  }, [gameControl.shuffleTrigger]); // Empty dependency array to run the effect once
+  }, [gameControl.shuffleTrigger]);
 
   return (
     <div className="App">
