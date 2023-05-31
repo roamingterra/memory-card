@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/%7Bmemory-card%7D/static/css/main.043dab8b.css",
+    "main.js": "/%7Bmemory-card%7D/static/js/main.f5f319c6.js",
+    "static/media/SnesItalic-1G9Be.ttf": "/%7Bmemory-card%7D/static/media/SnesItalic-1G9Be.646e241900ac738898f2.ttf",
+    "index.html": "/%7Bmemory-card%7D/index.html",
+    "main.043dab8b.css.map": "/%7Bmemory-card%7D/static/css/main.043dab8b.css.map",
+    "main.f5f319c6.js.map": "/%7Bmemory-card%7D/static/js/main.f5f319c6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.043dab8b.css",
+    "static/js/main.f5f319c6.js"
+  ]
+}
