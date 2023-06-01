@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/memory-card/static/css/main.be162f4a.css",
-    "main.js": "/memory-card/static/js/main.bd4415f2.js",
-    "static/media/SnesItalic-1G9Be.ttf": "/memory-card/static/media/SnesItalic-1G9Be.646e241900ac738898f2.ttf",
-    "index.html": "/memory-card/index.html",
-    "main.be162f4a.css.map": "/memory-card/static/css/main.be162f4a.css.map",
-    "main.bd4415f2.js.map": "/memory-card/static/js/main.bd4415f2.js.map"
+    "main.css": "./static/css/main.a8fb4ece.css",
+    "main.js": "./static/js/main.2910328f.js",
+    "static/media/SnesItalic-1G9Be.ttf": "./static/media/SnesItalic-1G9Be.646e241900ac738898f2.ttf",
+    "index.html": "./index.html",
+    "main.a8fb4ece.css.map": "./static/css/main.a8fb4ece.css.map",
+    "main.2910328f.js.map": "./static/js/main.2910328f.js.map"
   },
   "entrypoints": [
-    "static/css/main.be162f4a.css",
-    "static/js/main.bd4415f2.js"
+    "static/css/main.a8fb4ece.css",
+    "static/js/main.2910328f.js"
   ]
 }
