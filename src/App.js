@@ -19,18 +19,18 @@ function App() {
   };
 
   const images = [
-    "./memory-card/images/argentina.png",
-    "./memory-card/images/australia.png",
-    "./memory-card/images/brazil.png",
-    "./memory-card/images/canada.png",
-    "./memory-card/images/china.png",
-    "./memory-card/images/france.png",
-    "./memory-card/images/germany.png",
-    "./memory-card/images/india.png",
-    "./memory-card/images/italy.png",
-    "./memory-card/images/japan.png",
-    "./memory-card/images/south-africa.png",
-    "./memory-card/images/united-kingdom.png",
+    "./images/argentina.png",
+    "./images/australia.png",
+    "./images/brazil.png",
+    "./images/canada.png",
+    "./images/china.png",
+    "./images/france.png",
+    "./images/germany.png",
+    "./images/india.png",
+    "./images/italy.png",
+    "./images/japan.png",
+    "./images/south-africa.png",
+    "./images/united-kingdom.png",
   ];
 
   // State variables
